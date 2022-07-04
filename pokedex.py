@@ -1,0 +1,1 @@
+print("Hello World! \nThis is going to be my introductory commit for my pokedex project! \nMy goal will be to web scrape all pokemon data from the pokemon database and formulate it into a pokeddex program. \nI will do my best and I hope everyone enjoys. Thank you!")
