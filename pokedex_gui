@@ -1,0 +1,55 @@
+from tkinter import *
+from pokedex import *
+
+
+
+window = Tk()  #main
+
+window.title('Universal Pokedex')
+window.configure(background="red")
+
+
+#click function
+def click():
+    entered_text = text_entry.get() # collects text from text entry box
+    output.delete(0.0, END)
+    try:
+        definition = poke_dictionary[entered_text]
+    except:
+        definition = "sorry there is no such pokemon"
+    output.insert(END, definition)
+
+
+# Exit function
+def close_window():
+    window.destroy()
+    exit()
+
+
+bg_image = PhotoImage(file="images/pokedex.gif")
+Label (window, image=bg_image, bg='red').grid(row=0, column=0, sticky=E)
+
+
+Label (window, text="Welcome to the Universal Pokedex! Enter a pokemon to see its stats: ", bg="red", fg="black", font='none 12 bold' ).grid(row=1, column=0, sticky=S) #create label
+
+text_entry = Entry(window, width=20, bg='white') # text entry box
+text_entry.grid(row=2, column=0, sticky=S)
+
+output = Text(window, width=75, heigh=6, wrap=WORD, background="white") # text box
+output.grid(row=5, column=0, columnspan=2, sticky=S)
+
+
+Button(window, text='SUBMIT', width=6, command=click).grid(row=3, column=0, sticky=S) # submit button
+
+
+Button(window, text="Exit", width=14, command=close_window).grid(row=7, column=0, sticky=W) #exit button
+
+
+
+
+pokemon_name = tuple(pokemon_name)
+poke_dictionary = {
+    pokemon_name : columns
+}
+
+window.mainloop()  #mainloop
